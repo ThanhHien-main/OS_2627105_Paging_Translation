@@ -1,0 +1,127 @@
+=======================================================
+PAGING ADDRESS TRANSLATION SIMULATOR - EXECUTION TRACE
+Page Size (P) = 16 bytes | Page Table Entries = 5
+=======================================================
+
+Logical Address: 0
+Status: SUCCESS
+Physical Address: 80
+TRACE:
+Step 1: Logical Address = 0
+        Page Number = floor(0 / 16) = 0
+        Offset = 0 mod 16 = 0
+Step 2: Page 0 exists in page table
+Step 3: Valid bit = 1
+Step 4: Frame Number = 5
+Step 5: PA = 5 * 16 + 0 = 80
+Step 6: SUCCESS - Physical Address = 80
+
+Logical Address: 15
+Status: SUCCESS
+Physical Address: 95
+TRACE:
+Step 1: Logical Address = 15
+        Page Number = floor(15 / 16) = 0
+        Offset = 15 mod 16 = 15
+Step 2: Page 0 exists in page table
+Step 3: Valid bit = 1
+Step 4: Frame Number = 5
+Step 5: PA = 5 * 16 + 15 = 95
+Step 6: SUCCESS - Physical Address = 95
+
+Logical Address: 16
+Status: SUCCESS
+Physical Address: 32
+TRACE:
+Step 1: Logical Address = 16
+        Page Number = floor(16 / 16) = 1
+        Offset = 16 mod 16 = 0
+Step 2: Page 1 exists in page table
+Step 3: Valid bit = 1
+Step 4: Frame Number = 2
+Step 5: PA = 2 * 16 + 0 = 32
+Step 6: SUCCESS - Physical Address = 32
+
+Logical Address: 20
+Status: SUCCESS
+Physical Address: 36
+TRACE:
+Step 1: Logical Address = 20
+        Page Number = floor(20 / 16) = 1
+        Offset = 20 mod 16 = 4
+Step 2: Page 1 exists in page table
+Step 3: Valid bit = 1
+Step 4: Frame Number = 2
+Step 5: PA = 2 * 16 + 4 = 36
+Step 6: SUCCESS - Physical Address = 36
+
+Logical Address: 37
+Status: SUCCESS
+Physical Address: 117
+TRACE:
+Step 1: Logical Address = 37
+        Page Number = floor(37 / 16) = 2
+        Offset = 37 mod 16 = 5
+Step 2: Page 2 exists in page table
+Step 3: Valid bit = 1
+Step 4: Frame Number = 7
+Step 5: PA = 7 * 16 + 5 = 117
+Step 6: SUCCESS - Physical Address = 117
+
+Logical Address: 48
+Status: PAGE FAULT
+TRACE:
+Step 1: Logical Address = 48
+        Page Number = floor(48 / 16) = 3
+        Offset = 48 mod 16 = 0
+Step 2: Page 3 exists in page table
+Step 3: PAGE FAULT - Page 3 has valid bit = 0
+
+Logical Address: 50
+Status: PAGE FAULT
+TRACE:
+Step 1: Logical Address = 50
+        Page Number = floor(50 / 16) = 3
+        Offset = 50 mod 16 = 2
+Step 2: Page 3 exists in page table
+Step 3: PAGE FAULT - Page 3 has valid bit = 0
+
+Logical Address: 64
+Status: SUCCESS
+Physical Address: 144
+TRACE:
+Step 1: Logical Address = 64
+        Page Number = floor(64 / 16) = 4
+        Offset = 64 mod 16 = 0
+Step 2: Page 4 exists in page table
+Step 3: Valid bit = 1
+Step 4: Frame Number = 9
+Step 5: PA = 9 * 16 + 0 = 144
+Step 6: SUCCESS - Physical Address = 144
+
+Logical Address: 79
+Status: SUCCESS
+Physical Address: 159
+TRACE:
+Step 1: Logical Address = 79
+        Page Number = floor(79 / 16) = 4
+        Offset = 79 mod 16 = 15
+Step 2: Page 4 exists in page table
+Step 3: Valid bit = 1
+Step 4: Frame Number = 9
+Step 5: PA = 9 * 16 + 15 = 159
+Step 6: SUCCESS - Physical Address = 159
+
+Logical Address: 80
+Status: INVALID
+TRACE:
+Step 1: Logical Address = 80
+        Page Number = floor(80 / 16) = 5
+        Offset = 80 mod 16 = 0
+Step 2: INVALID - Page 5 is outside page table (valid range: 0..4)
+
+Logical Address: -5
+Status: INVALID
+TRACE:
+Step 1: Logical Address = -5 (Negative address)
+Step 2: INVALID - Logical address cannot be negative

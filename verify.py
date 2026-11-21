@@ -1,63 +1,65 @@
 import json
+import math
 
 
-def independent_check(address, page_size, page_table):
-    page = address // page_size
-    offset = address % page_size
+def bitwise_oracle(logical_address, page_size, page_table):
+    """
+    Independent verification using bitwise operations (shift & mask)
+    instead of integer division/modulo logic used in main.py.
+    """
+    if logical_address < 0:
+        return ("INVALID", None)
 
-    if page >= len(page_table):
-        return "INVALID", None
+    offset_bits = int(math.log2(page_size))
+    offset_mask = (1 << offset_bits) - 1
 
-    entry = page_table[page]
+    page_idx = logical_address >> offset_bits
+    offset_val = logical_address & offset_mask
 
-    if entry["valid"] == 0:
-        return "PAGE FAULT", None
+    if page_idx >= len(page_table):
+        return ("INVALID", None)
 
-    physical_address = entry["frame"] * page_size + offset
+    if page_table[page_idx]["valid"] != 1:
+        return ("PAGE FAULT", None)
 
-    return "SUCCESS", physical_address
+    frame_val = page_table[page_idx]["frame"]
+    physical_addr = (frame_val << offset_bits) | offset_val
+    return ("SUCCESS", physical_addr)
 
 
 def main():
-    with open("input.json", "r", encoding="utf-8") as file:
-        data = json.load(file)
+    with open("input.json", "r", encoding="utf-8") as f:
+        input_data = json.load(f)
 
-    page_size = data["page_size"]
-    page_table = data["page_table"]
+    with open("results/output.json", "r", encoding="utf-8") as f:
+        actual_results = json.load(f)
 
-    expected = {
-        0: ("SUCCESS", 80),
-        15: ("SUCCESS", 95),
-        16: ("SUCCESS", 32),
-        37: ("SUCCESS", 117),
-        64: ("SUCCESS", 144),
-        79: ("SUCCESS", 159),
-        48: ("PAGE FAULT", None),
-        80: ("INVALID", None)
+    page_size = input_data["page_size"]
+    page_table = input_data["page_table"]
+    actual_map = {
+        item["logical_address"]: (item["status"], item["physical_address"])
+        for item in actual_results
     }
 
-    print("INDEPENDENT VERIFICATION")
-    print("-" * 50)
+    print("INDEPENDENT VERIFICATION (BITWISE ORACLE vs MAIN.PY OUTPUT)")
+    print("-" * 72)
 
     all_passed = True
-
-    for address, expected_result in expected.items():
-        actual = independent_check(
-            address, page_size, page_table
-        )
-
-        status = "PASS" if actual == expected_result else "FAIL"
-
-        if status == "FAIL":
+    for addr in input_data["logical_addresses"]:
+        expected = bitwise_oracle(addr, page_size, page_table)
+        actual = actual_map.get(addr, ("MISSING", None))
+        passed = (expected == actual)
+        if not passed:
             all_passed = False
 
+        status_str = "PASS" if passed else "FAIL"
         print(
-            f"Address {address}: {status} | "
-            f"Expected: {expected_result} | Actual: {actual}"
+            f"LA = {addr:>3} | {status_str:<4} | "
+            f"Expected (Bitwise): {str(expected):<22} | Actual (main.py): {actual}"
         )
 
-    print("-" * 50)
-    print("ALL TESTS PASSED" if all_passed else "SOME TESTS FAILED")
+    print("-" * 72)
+    print("RESULT: ALL 11 TEST CASES PASSED" if all_passed else "RESULT: VERIFICATION FAILED")
 
 
 if __name__ == "__main__":
