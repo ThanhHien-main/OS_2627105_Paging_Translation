@@ -1,0 +1,163 @@
+[
+    {
+        "logical_address": 37,
+        "status": "SUCCESS",
+        "page_number": 2,
+        "offset": 5,
+        "frame_number": 7,
+        "physical_address": 117,
+        "trace": [
+            "Step 1: Logical Address = 37",
+            "        Page Number = 2",
+            "        Offset = 5",
+            "Step 2: Page 2 exists in page table",
+            "Step 3: Valid bit = 1",
+            "Step 4: Frame Number = 7",
+            "Step 5: PA = 7 * 16 + 5 = 117",
+            "Step 6: SUCCESS - Physical Address = 117"
+        ]
+    },
+    {
+        "logical_address": 0,
+        "status": "SUCCESS",
+        "page_number": 0,
+        "offset": 0,
+        "frame_number": 5,
+        "physical_address": 80,
+        "trace": [
+            "Step 1: Logical Address = 0",
+            "        Page Number = 0",
+            "        Offset = 0",
+            "Step 2: Page 0 exists in page table",
+            "Step 3: Valid bit = 1",
+            "Step 4: Frame Number = 5",
+            "Step 5: PA = 5 * 16 + 0 = 80",
+            "Step 6: SUCCESS - Physical Address = 80"
+        ]
+    },
+    {
+        "logical_address": 15,
+        "status": "SUCCESS",
+        "page_number": 0,
+        "offset": 15,
+        "frame_number": 5,
+        "physical_address": 95,
+        "trace": [
+            "Step 1: Logical Address = 15",
+            "        Page Number = 0",
+            "        Offset = 15",
+            "Step 2: Page 0 exists in page table",
+            "Step 3: Valid bit = 1",
+            "Step 4: Frame Number = 5",
+            "Step 5: PA = 5 * 16 + 15 = 95",
+            "Step 6: SUCCESS - Physical Address = 95"
+        ]
+    },
+    {
+        "logical_address": 20,
+        "status": "SUCCESS",
+        "page_number": 1,
+        "offset": 4,
+        "frame_number": 2,
+        "physical_address": 36,
+        "trace": [
+            "Step 1: Logical Address = 20",
+            "        Page Number = 1",
+            "        Offset = 4",
+            "Step 2: Page 1 exists in page table",
+            "Step 3: Valid bit = 1",
+            "Step 4: Frame Number = 2",
+            "Step 5: PA = 2 * 16 + 4 = 36",
+            "Step 6: SUCCESS - Physical Address = 36"
+        ]
+    },
+    {
+        "logical_address": 64,
+        "status": "SUCCESS",
+        "page_number": 4,
+        "offset": 0,
+        "frame_number": 9,
+        "physical_address": 144,
+        "trace": [
+            "Step 1: Logical Address = 64",
+            "        Page Number = 4",
+            "        Offset = 0",
+            "Step 2: Page 4 exists in page table",
+            "Step 3: Valid bit = 1",
+            "Step 4: Frame Number = 9",
+            "Step 5: PA = 9 * 16 + 0 = 144",
+            "Step 6: SUCCESS - Physical Address = 144"
+        ]
+    },
+    {
+        "logical_address": 50,
+        "status": "PAGE FAULT",
+        "physical_address": null,
+        "trace": [
+            "Step 1: Logical Address = 50",
+            "        Page Number = 3",
+            "        Offset = 2",
+            "Step 2: Page 3 exists in page table",
+            "Step 3: PAGE FAULT - Invalid page"
+        ]
+    },
+    {
+        "logical_address": 79,
+        "status": "SUCCESS",
+        "page_number": 4,
+        "offset": 15,
+        "frame_number": 9,
+        "physical_address": 159,
+        "trace": [
+            "Step 1: Logical Address = 79",
+            "        Page Number = 4",
+            "        Offset = 15",
+            "Step 2: Page 4 exists in page table",
+            "Step 3: Valid bit = 1",
+            "Step 4: Frame Number = 9",
+            "Step 5: PA = 9 * 16 + 15 = 159",
+            "Step 6: SUCCESS - Physical Address = 159"
+        ]
+    },
+    {
+        "logical_address": 16,
+        "status": "SUCCESS",
+        "page_number": 1,
+        "offset": 0,
+        "frame_number": 2,
+        "physical_address": 32,
+        "trace": [
+            "Step 1: Logical Address = 16",
+            "        Page Number = 1",
+            "        Offset = 0",
+            "Step 2: Page 1 exists in page table",
+            "Step 3: Valid bit = 1",
+            "Step 4: Frame Number = 2",
+            "Step 5: PA = 2 * 16 + 0 = 32",
+            "Step 6: SUCCESS - Physical Address = 32"
+        ]
+    },
+    {
+        "logical_address": 80,
+        "status": "INVALID",
+        "physical_address": null,
+        "trace": [
+            "Step 1: Logical Address = 80",
+            "        Page Number = 5",
+            "        Offset = 0",
+            "Step 2: INVALID - Page number is outside page table"
+        ]
+    },
+    {
+        "logical_address": 48,
+        "status": "PAGE FAULT",
+        "physical_address": null,
+        "trace": [
+            "Step 1: Logical Address = 48",
+            "        Page Number = 3",
+            "        Offset = 0",
+            "Step 2: Page 3 exists in page table",
+            "Step 3: PAGE FAULT - Invalid page"
+        ]
+    }
+]

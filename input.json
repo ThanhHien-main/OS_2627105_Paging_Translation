@@ -1,0 +1,22 @@
+{
+    "page_size": 16,
+    "page_table": [
+        {"frame": 5, "valid": 1},
+        {"frame": 2, "valid": 1},
+        {"frame": 7, "valid": 1},
+        {"frame": 1, "valid": 0},
+        {"frame": 9, "valid": 1}
+    ],
+    "logical_addresses": [
+        37,
+        0,
+        15,
+        20,
+        64,
+        50,
+        79,
+        16,
+        80,
+        48
+    ]
+}
