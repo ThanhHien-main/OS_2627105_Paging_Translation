@@ -1,4 +1,4 @@
-import json
+﻿import json
 import os
 
 
@@ -87,7 +87,7 @@ def translate_address(logical_address, page_size, page_table):
 
 
 def main():
-    data = load_input("input.json")
+    data = load_input("input/input.json")
     page_size = data["page_size"]
     page_table = data["page_table"]
     logical_addresses = data["logical_addresses"]

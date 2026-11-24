@@ -1,4 +1,4 @@
-import json
+﻿import json
 import math
 
 
@@ -28,7 +28,7 @@ def bitwise_oracle(logical_address, page_size, page_table):
 
 
 def main():
-    with open("input.json", "r", encoding="utf-8") as f:
+    with open("input/input.json", "r", encoding="utf-8") as f:
         input_data = json.load(f)
 
     with open("results/output.json", "r", encoding="utf-8") as f:
