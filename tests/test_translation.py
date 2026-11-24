@@ -1,9 +1,9 @@
 ﻿import json
 import unittest
 
-from main import translate_address
-from verify import bitwise_oracle
-from validator import (
+from src.main import translate_address
+from tests.verify import bitwise_oracle
+from src.validator import (
     ValidationError,
     validate_page_size,
     validate_page_table,
@@ -78,3 +78,4 @@ class TestPagingTranslation(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
